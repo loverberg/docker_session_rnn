@@ -1,6 +1,8 @@
+# Импортируем все пакеты, которые необходимы для модели
 import torch
 import torch.nn as nn
 
+# Переносим функции и переменные из рабочего ноутбука
 n_letters = 57
 all_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,;'"
 n_categories = 18
@@ -31,4 +33,5 @@ class RNN(nn.Module):
 n_hidden = 128
 rnn = RNN(n_letters, n_hidden, n_categories)
 
+# Загружаем обученную модель из текущего каталога
 rnn.load_state_dict(torch.load('model_rnn'))

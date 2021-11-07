@@ -1,3 +1,4 @@
+# Импортируем все пакеты, которые необходимы для модели
 from structure_model import *
 from translate import Translator
 
@@ -29,20 +30,18 @@ def evaluate(line_tensor):
    return output
 
 
-def predict(input_line, n_predictions=3):
+def predict(input_line, n_predictions=1):
     input_line = translator.translate(input_line)
-    print('\n> %s' % input_line)
-    with torch.no_grad():
-        output = evaluate(lineToTensor(input_line))
+    output = evaluate(lineToTensor(input_line))
 
-        # Get top N categories
-        topv, topi = output.topk(n_predictions, 1, True)
-        predictions = []
+    # Get top N categories
+    topv, topi = output.data.topk(n_predictions, 1, True)
+    predictions = []
 
-        for i in range(n_predictions):
-            value = topv[0][i].item()
-            category_index = topi[0][i].item()
-            print('(%.2f) %s' % (value, all_categories[category_index]))
-            predictions.append([value, all_categories[category_index]])
+    for i in range(n_predictions):
+        value = topv[0][i]
+        category_index = topi[0][i]
+        print('(%.2f) %s' % (value, all_categories[category_index]))
+        predictions.append([value, all_categories[category_index]])
 
-predict('Рогозин')
+    return predictions
