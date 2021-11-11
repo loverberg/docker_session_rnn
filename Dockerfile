@@ -1,9 +1,9 @@
 FROM python:3.8.10
 WORKDIR /app
 
-EXPOSE 5000
+EXPOSE 80
 
-COPY ./main.py .
+COPY ./fast.py .
 COPY ./model_rnn .
 COPY ./prediction.py .
 COPY ./structure_model.py .
@@ -11,4 +11,4 @@ COPY ./requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD ['python3', './main.py']
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
