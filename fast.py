@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from prediction import *
+
 #Запуск нашего API
 
 app = FastAPI()
@@ -18,7 +19,3 @@ def predict_torch(sentence: str):
     pred = predict(sentence)
 
     return {sentence: str(pred[0][1])}
-
-
-if __name__ == "__fast__":
-    uvicorn.run(app, host="0.0.0.0", port=80)
