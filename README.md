@@ -9,4 +9,5 @@
 под управлением Oracle Linux (Oracle Cloud).
 
 Итоговый контейнер: $ docker pull intercept/rnn_case
+
 #Torch #FastAPI #Docker
