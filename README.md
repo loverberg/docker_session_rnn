@@ -1,4 +1,3 @@
-# docker_session_rnn
 # Torch, FastAPI, Docker
 
 NLP: Классификация фамилий с использованием рекуррентных нейронных сетей (RNN)
