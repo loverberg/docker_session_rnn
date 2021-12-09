@@ -13,6 +13,6 @@
 | [prediction](https://github.com/loverberg/docker_session_rnn/blob/main/prediction.py)      |
 | [API](https://github.com/loverberg/docker_session_rnn/blob/main/fast.py)      | 
 
-## Итоговый контейнер: $ docker pull intercept/rnn_case
+### docker container: $ docker pull intercept/rnn_case
 
 #Torch #FastAPI #Docker
